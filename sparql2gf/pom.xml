@@ -49,6 +49,14 @@
 			<version>2.2.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aksw.jena-sparql-api/jena-sparql-api-algebra -->
+		<dependency>
+			<groupId>org.aksw.jena-sparql-api</groupId>
+			<artifactId>jena-sparql-api-algebra</artifactId>
+			<version>3.3.0-1</version>
+		</dependency>
+
+
 
 	</dependencies>
 
