@@ -6,7 +6,7 @@ public class TestSparqlToGfTranslatorQueryParsing {
 		
 		
 		//Example Query ---!!! Add Prefix
-		String query1 = "SELECT * WHERE { ?s ?p ?o }";
+		String query1 = "SELECT ?s WHERE { ?s ?p ?o }";
 		
 		
 		// Create new translator object
