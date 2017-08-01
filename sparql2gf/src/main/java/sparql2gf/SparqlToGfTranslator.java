@@ -1,17 +1,32 @@
 package sparql2gf;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.jena.graph.Triple;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.sparql.algebra.Algebra;
 import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.algebra.OpVisitorBase;
 import org.apache.jena.sparql.algebra.OpWalker;
+import org.apache.jena.sparql.algebra.op.OpBGP;
 
-public class SparqlToGfTranslator {
+
+public class SparqlToGfTranslator extends OpVisitorBase {
 	
 	//Query string in User application
 	private String queryString;
+	
+	//Initialize List with motif BGPs, e.g [(s)-[p]->(o); ...etc.]
+	private ArrayList<String> queryPatterns = new ArrayList<String>();
+	
+	//Initialize Filter List
+	private ArrayList<String> filterList = new ArrayList<String>();
+
+	/* List<Motif> motif = new ArrayList<Motif>(); */
+
 	
 	/* Instead of "STRING" use input format of GF-motif */
 	public String translateQuery(String q) {
@@ -36,21 +51,53 @@ public class SparqlToGfTranslator {
 		logWriter.println();
 		
 		//Transform SPARQL query string to AST / Op Tree
-		Op opRoot = Algebra.compile(query);
+		Op op = Algebra.compile(query);
+		
 		
 		//Output original Algebra Tree to log
 		logWriter.println("Algebra Tree of Query:");
 		logWriter.println("######################");
 //		logWriter.println(opRoot.toString(prefixes));
-		logWriter.println(opRoot);
+		logWriter.println(op);
 		logWriter.println();
 		
-		OpWalker.walk(opRoot, null);
-
+		OpWalker.walk(op, null);
 		
 		
-		return opRoot.toString();
+		
+		return "Op Tree:"+" " + op.toString();
 				
 	}
 
+	/* public void visit(final OpBGP opBGP) {
+		{
+			final List<Triple> triples = opBGP.getPattern().getList();
+			final Traversal[] matchTraversals = new Traversal[triples.size()];
+			int i = 0;
+			for (final Triple triple : triples) {
+
+				matchTraversals[i++] = MotifBuilder.transform(triple);
+				motifPatternList.add(motifPattern);     // add motif pattern strings, e.g: "(s)-[p]->(o)"
+				motifOperationList.add(motifOperation); // add operational strings, e.g: "s.name=''" //
+			}
+
+		}
+
+	} */
+	
+	//add motifs
+	
+	public void addMotifs(ArrayList<String> concreteNodes, String motifPattern) {
+		queryPatterns.add(motifPattern);
+		int i= 0;
+		for (i : concreteNodes.size()) {
+			filterList.add(concreteNodes[i]);
+			i+=1;
+		}
+		
+		
+		
+	}
+	
+	
 }
