@@ -12,8 +12,8 @@ public class TestMotifBuilder {
 		String query = "SELECT * WHERE { ?s ?p ?o }";
 		Query query1= QueryFactory.create(query);
 		Op op = Algebra.compile(query1);
-		Triple triple1 = op.getPattern();
+	/*	Triple triple1 = op.getPattern();   */
 		
-	}
+	}     
 
 }

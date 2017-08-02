@@ -19,11 +19,15 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	//Query string in User application
 	private String queryString;
 	
-	//Initialize List with motif BGPs, e.g [(s)-[p]->(o); ...etc.]
-	private ArrayList<String> queryPatterns = new ArrayList<String>();
-	
 	//Initialize Filter List
 	private ArrayList<String> filterList = new ArrayList<String>();
+	
+	//motifPatternList
+	private ArrayList<String> motifPatternList = new ArrayList<String>();
+    
+	//motifOperationList
+	private ArrayList<String> motifOperationList = new ArrayList<String>();
+
 
 	/* List<Motif> motif = new ArrayList<Motif>(); */
 
@@ -61,43 +65,29 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		logWriter.println(op);
 		logWriter.println();
 		
-		OpWalker.walk(op, null);
-		
-		
+		//Gives back PROJECTION, BGP/ later also OPTIONAL etc.
+		OpWalker.walk(op, this);
 		
 		return "Op Tree:"+" " + op.toString();
 				
 	}
 
-	/* public void visit(final OpBGP opBGP) {
+	public void visit(final OpBGP opBGP) {
 		{
 			final List<Triple> triples = opBGP.getPattern().getList();
-			final Traversal[] matchTraversals = new Traversal[triples.size()];
-			int i = 0;
+	//		final Traversal[] matchTraversals = new Traversal[triples.size()]; 
 			for (final Triple triple : triples) {
 
-				matchTraversals[i++] = MotifBuilder.transform(triple);
-				motifPatternList.add(motifPattern);     // add motif pattern strings, e.g: "(s)-[p]->(o)"
-				motifOperationList.add(motifOperation); // add operational strings, e.g: "s.name=''" //
+				ArrayList<String> motif = MotifBuilder.transform(triple);
+				     // add ready motif Strings
+			    // add operational strings, e.g: "s.name=''" //
 			}
 
 		}
 
-	} */
+	} 
 	
-	//add motifs
-	
-	public void addMotifs(ArrayList<String> concreteNodes, String motifPattern) {
-		queryPatterns.add(motifPattern);
-		int i= 0;
-		for (i : concreteNodes.size()) {
-			filterList.add(concreteNodes[i]);
-			i+=1;
-		}
-		
-		
-		
-	}
+	//add motifs  
 	
 	
 }

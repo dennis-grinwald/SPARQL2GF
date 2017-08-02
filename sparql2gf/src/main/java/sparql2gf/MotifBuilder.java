@@ -11,11 +11,13 @@ public class MotifBuilder {
 	static String concretePredicate = new String();
 	static String concreteObject = new String();
 	
+	//Concrete Nodes List
 	static ArrayList<String> concreteNodes= new ArrayList<String>();
+	
+	//Initialize List with motif for the current triple
+	public static ArrayList<String> tempMotif = new ArrayList<String>();
 
-	
-	
-	public static String transform(final Triple triple) {
+	public static ArrayList<String> transform(final Triple triple) {
 		
 		
 		//Abstract triple elements
@@ -23,36 +25,43 @@ public class MotifBuilder {
 		final Node predicate = triple.getPredicate();
 		final Node object = triple.getObject();
 		
-		// IMPROVE! Implement triple(s,p,o) to : " (s)-[p]->(o) "
-		String motifPattern = "("+subject.toString()+")"+"-"+"("+predicate.toString()+")"+"->"+"("+object.toString()+")";
+		// IMPROVE! Integrate triple(s,p,o) into form : " (s)-[p]->(o) "
+		String motifPattern = "("+subject.getName()+")"+"-"+"("+predicate.getName()+")"+"->"+"("+object.getName()+")";
 		
 		//Subject filter algorithm
-		if (subject.isConcrete()==true) {
+/*		if (subject.isConcrete()==true) {
 			concreteSubject=subject.toString();
 			concreteNodes.add(concreteSubject);
 		}
-		
 		//Predicate filter algorithm
 		if (predicate.isConcrete()==true) {
-			concreteSubject=predicate.toString();
+			concretePredicate=predicate.toString();
 			concreteNodes.add(concretePredicate);
 		} 
-		
 		//Object filter algorithm
 		if (predicate.isConcrete()==true) {
-					concreteObject=object.toString();
-					concreteNodes.add(concreteObject);
-		} 
+			concreteObject=object.toString();
+			concreteNodes.add(concreteObject);
+		} */
 		
-		if (concreteNodes != null) {
-			return SparqlToGfTranslator.addMotifs(concreteNodes, motifPattern);
-		}else {
-			return SparqlToGfTranslator.addPattern(motifPattern);
-		}
-		
-		
-		
-
+	    //Return motif, arguments
+		if (concreteNodes == null) {
+		   tempMotif.add(motifPattern);
+		   return tempMotif;
+		} /* else {
+			MotifBuilder.createConcreteMotif(motifPattern, concreteNodes);
+		} */
+		return tempMotif;
 	}
+	
+	/*public static ArrayList<String> createConcreteMotif(String motifPattern, ArrayList concreteNodes) {
+		tempMotif.add(motifPattern);   
 		
+		
+		
+		return tempMotif;
+		
+	}  */
+
 }
+

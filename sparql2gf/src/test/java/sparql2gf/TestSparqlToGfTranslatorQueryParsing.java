@@ -14,6 +14,6 @@ public class TestSparqlToGfTranslatorQueryParsing {
 		
 		
 		// Should print BGP of SPARQL Query
-		System.out.println(translator1.translateQuery(query1));
+	    translator1.translateQuery(query1);
 	}
 }
