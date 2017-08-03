@@ -1,4 +1,10 @@
 sparql2gf/MotifBuilder.class
-testpackage/Walk.class
+finalDesign/MotifBuilder.class
+testpackage/Element.class
 sparql2gf/SparqlToGfTranslator.class
 testpackage/Client.class
+finalDesign/SparqlToGfTranslator.class
+finalDesign/TestClient.class
+testpackage/Walk.class
+testpackage/WalkOperations.class
+finalDesign/MotifPattern.class

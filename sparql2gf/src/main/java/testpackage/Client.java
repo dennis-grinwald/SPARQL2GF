@@ -10,7 +10,7 @@ public class Client {
 
 	public static void main(String[] args) {
 		
-		String queryString = "SELECT ?s WHERE { ?s ?p ?o }";
+		String queryString = "SELECT ?s WHERE { ?s ?p ?o . ?o ?p ?s }";
 		Walk testWalk1 = new Walk();
 		
 		testWalk1.translateQuery(queryString);
