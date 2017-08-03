@@ -48,8 +48,8 @@ public class TestClient {
 		
 		/*Populate DataFrames with input data*/
 		
-		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("/Users/dgrinwald/Desktop/BA/resources/SPARQL-GF-CODE/vertices1.csv");
-		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("/Users/dgrinwald/Desktop/BA/resources/SPARQL-GF-CODE/edges1.csv");
+		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("/data/vertices1.csv");
+		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("/data/edges1.csv");
 		
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
 
