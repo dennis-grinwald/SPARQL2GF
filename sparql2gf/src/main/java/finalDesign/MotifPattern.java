@@ -9,14 +9,14 @@ public class MotifPattern {
 	public String v2;
 	
 	public MotifPattern(Node s, Node p, Node o) {
-		this.v = s.toString();
-		this.e = p.toString();
-		this.v2 = o.toString();
+		this.v = s.getName();
+		this.e = p.getName();
+		this.v2 = o.getName();
 	}
 	
 
 	public String createPattern() {
-		String pattern = "(" + v + ")"+"-"+"(" + e + ")"+"->"+"(" + v2 + ")";
+		String pattern = "(" + v + ")"+"-"+"[" + e + "]"+"->"+"(" + v2 + ")";
 		return pattern;
 	}
 

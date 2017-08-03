@@ -20,7 +20,7 @@ import testpackage.WalkOperations;
 
 public class SparqlToGfTranslator extends OpVisitorBase {
 	
-	public static List<String> patternList = new ArrayList<String>();
+	public static String patternList;
 
 
 	public static Dataset<Row> translateQuery(GraphFrame graphframe, String queryString) {
@@ -29,14 +29,15 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		Op opRoot = Algebra.compile(query);
 		OpWalker.walk(opRoot, new SparqlToGfTranslator()); 
 		
-		return graphframe.find(patternList.toString());
+		return graphframe.find(patternList);
 	}
     
 	public void visit(OpBGP opBGP) {
 		System.out.println("BGP recognized : "+opBGP);		
 		final List<Triple> triples = opBGP.getPattern().getList();		
 		for (final Triple triple : triples) {	
-			WalkOperations.transform(triple);
+			MotifBuilder motif = new MotifBuilder();
+			motif.transform(triple);
 			
 	
 		}			
@@ -47,7 +48,7 @@ public class SparqlToGfTranslator extends OpVisitorBase {
     }
 	
 	public static void add(String motifPattern) {
-		patternList.add(motifPattern);			
+		patternList=motifPattern;			
 	}
 
 }
