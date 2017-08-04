@@ -1,5 +1,6 @@
 package finalDesign;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.jena.graph.Node;
@@ -24,13 +25,23 @@ public class MotifBuilder {
 		SparqlToGfTranslator.add(motifPattern);	
 		
 		//Abstract MotifFilter from concrete Nodes in SPARQL query
-		
-		
-		
-		
+		//List<Node> concreteNodeList = new ArrayList<Node>();
+		if (subject.isConcrete()) { 
+		MotifFilter subjectFilter = new MotifFilter(subject,predicate,object);
+		subjectFilter.createMotifFilter(subject);
+		}
+	/*	if (predicate.isConcrete()) {
+			MotifFilter subjectFilter = new MotifFilter();
+			MotifFilter.createPredicateFilter(predicate);		}
+		if (object.isConcrete()) {
+			concreteNodeList.add(object);
+		}
+		if (concreteNodeList != null) {		
+				MotifFilter motifFilter = new MotifFilter();
+				motifFilter.createMotif();
+		}		*/
 	}
 
-	
 	//transform the collected MotifPatterns in SparqlToGfTranslator.class into GraphFrames motif-Format
 	public static String organizePatternList(List<String> patternList) {
 		
