@@ -1,5 +1,7 @@
 package finalDesign;
 
+import java.util.List;
+
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.Triple;
 
@@ -19,5 +21,19 @@ public class MotifBuilder {
 		String motifPattern = pattern.createPattern();
 		SparqlToGfTranslator.add(motifPattern);	
 	}
-	
+
+	public static String organizePatternList(List<String> patternList) {
+		
+		String motif = new String();
+		for (String pattern : patternList) {
+			motif=motif.concat(pattern+";");
+		}
+		motif=motif.substring(0, motif.length()-1);
+		return motif;
+	}
+
+			
+
 }
+	
+

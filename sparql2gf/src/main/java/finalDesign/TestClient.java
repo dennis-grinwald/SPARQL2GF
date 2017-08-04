@@ -53,7 +53,7 @@ public class TestClient {
 		
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
 
-		String queryString = "SELECT * WHERE { ?subject ?predicate ?object }";
+		String queryString = "SELECT * WHERE { ?s ?p ?o . ?o ?p ?s }";
 		
 		Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
 		graphQuery.show();
