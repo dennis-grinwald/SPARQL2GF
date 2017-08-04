@@ -51,11 +51,17 @@ public class TestClient {
 		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/vertices1.csv");
 		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/edges1.csv");
 		
+		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
-
-		String queryString = "SELECT * WHERE { ?s ?p ?o . ?o ?p ?s }";
+        
+		//create SPARQL query string
+		String queryString = "SELECT * WHERE { ?s ?p ?o . ?o ?p1 ?s }";
 		
+		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
+		//- returns DataFrame(table) that represents Query Evaluation
 		Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
+		
+		//Print DataFrame
 		graphQuery.show();
 	}
 
