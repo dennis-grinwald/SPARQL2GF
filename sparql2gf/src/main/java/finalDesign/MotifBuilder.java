@@ -22,24 +22,12 @@ public class MotifBuilder {
 		//Abstract MotifPattern from SPARQL-BGP 
 		MotifPattern pattern = new MotifPattern(subject,predicate,object);
 		String motifPattern = pattern.createPattern();
-		SparqlToGfTranslator.add(motifPattern);	
+		SparqlToGfTranslator.addMotifPattern(motifPattern);	
 		
 		//Abstract MotifFilter from concrete Nodes in SPARQL query
-		//List<Node> concreteNodeList = new ArrayList<Node>();
-		if (subject.isConcrete()) { 
-		MotifFilter subjectFilter = new MotifFilter(subject,predicate,object);
-		subjectFilter.createMotifFilter(subject);
+		if (subject.isConcrete() || predicate.isConcrete() || object.isConcrete()) {
+			MotifFilter motifFilter = new MotifFilter(subject, predicate, object) ;
 		}
-	/*	if (predicate.isConcrete()) {
-			MotifFilter subjectFilter = new MotifFilter();
-			MotifFilter.createPredicateFilter(predicate);		}
-		if (object.isConcrete()) {
-			concreteNodeList.add(object);
-		}
-		if (concreteNodeList != null) {		
-				MotifFilter motifFilter = new MotifFilter();
-				motifFilter.createMotif();
-		}		*/
 	}
 
 	//transform the collected MotifPatterns in SparqlToGfTranslator.class into GraphFrames motif-Format

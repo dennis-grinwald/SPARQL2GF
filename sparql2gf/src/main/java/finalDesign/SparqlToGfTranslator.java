@@ -23,6 +23,7 @@ import testpackage.WalkOperations;
 public class SparqlToGfTranslator extends OpVisitorBase {
 	
 	public static List<String> patternList = new ArrayList<String>();
+	public static String motifFilter;
 
 
 	public static Dataset<Row> translateQuery(GraphFrame graphframe, String queryString) {
@@ -38,7 +39,21 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		String motif = MotifBuilder.organizePatternList(patternList);
 		
 		//Apply query on GraphFrame, that is initialized by client
-		return graphframe.find(motif);
+		//return graphframe.find(motif);
+		
+	/**	int number;
+		switch (number) {
+		case 1: return graphframe.find(motif).filter(motifFilter);
+		case 2: return graphframe.find(motif).filter(motiFilter).filter(motifFilter2);
+		case 3: return graphframe.find(motif).filter(motifFilter).filter(motifFilter2).filter(motifFilter3);
+	
+		} **/
+		
+		if (motifFilter!=null) {
+			return graphframe.find(motif).filter(motifFilter);
+		}
+		return graphframe.find(motif).filter(motifFilter);
+		
 	}
     
 	
@@ -62,8 +77,11 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	
     
     //Collects all motifPatterns - called by MotifBuilder
-	public static void add(String motifPattern) {
+	public static void addMotifPattern(String motifPattern) {
 		patternList.add(motifPattern);			
 	}
-
+	
+	public static void addMotifFilter(String filter) {
+		motifFilter = filter;
+	}
 }
