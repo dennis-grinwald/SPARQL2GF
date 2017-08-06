@@ -23,7 +23,7 @@ import testpackage.WalkOperations;
 public class SparqlToGfTranslator extends OpVisitorBase {
 	
 	public static List<String> patternList = new ArrayList<String>();
-	public static String motifFilter;
+	public static List<String> motifFilterList = new ArrayList<String>();
 
 
 	public static Dataset<Row> translateQuery(GraphFrame graphframe, String queryString) {
@@ -36,20 +36,25 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		OpWalker.walk(opRoot, new SparqlToGfTranslator());
 		
 		//create final MotifPattern by organizing collected MotifPatterns
-		String motif = MotifBuilder.organizePatternList(patternList);
+		String motifPattern = MotifBuilder.organizePatternList(patternList);
 		
 		//Apply query on GraphFrame, that is initialized by client
 		//return graphframe.find(motif);
+	    
 		
-	/**	int number;
+		int number = motifFilterList.size();
+		Dataset<Row> gfQuery = null;
 		switch (number) {
-		case 1: return graphframe.find(motif).filter(motifFilter);
-		case 2: return graphframe.find(motif).filter(motiFilter).filter(motifFilter2);
-		case 3: return graphframe.find(motif).filter(motifFilter).filter(motifFilter2).filter(motifFilter3);
-	
-		} **/
-		
-		return graphframe.find(motif).filter(motifFilter);
+		case 0: gfQuery = graphframe.find(motifPattern);
+		break;
+		case 1: gfQuery = graphframe.find(motifPattern).filter(motifFilterList.get(0));
+		break;
+		case 2: gfQuery = graphframe.find(motifPattern).filter(motifFilterList.get(0)).filter(motifFilterList.get(1));
+		break;
+		case 3: gfQuery = graphframe.find(motifPattern).filter(motifFilterList.get(0)).filter(motifFilterList.get(1)).filter(motifFilterList.get(2));
+		break;
+		}
+		return gfQuery;	
 	}
     
 	
@@ -78,6 +83,6 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	}
 	
 	public static void addMotifFilter(String filter) {
-		motifFilter = filter;
+		motifFilterList.add(filter);
 	}
 }

@@ -22,6 +22,8 @@ public class MotifFilter {
 	
 	public List<String> filterList = new ArrayList<String>();
 	
+	
+	//FIX URI/Prefix useage!!!
 	public MotifFilter(Node s, Node p, Node o) {
 		this.s = s;
 		this.p = p;
@@ -48,41 +50,37 @@ public class MotifFilter {
 			if (p.isLiteral()) {
 				e=p.getLiteral().toString();
 			}else if (p.isURI()) {
-				e=p.getURI();
+				e=p.getLocalName();
 			}else if (p.isBlank()) {
 				e = null;
 			}
-		} 
+		}
+		if (!o.isVariable()) {
+			if (o.isLiteral()) {
+				v2=o.getLiteral().toString();
+			}else if (o.isURI()) {
+				v2=o.getURI();
+			}else if (o.isBlank()) {
+				v2 = null;
+			}
+		}
 	}
 	
 	public MotifFilter() {}
 	
-	public String createMotifFilter() {
-	/*	if (v!=null) {
+	//creates MotifFilter in GraphFrame syntax : e.g. "josh(as vertex).name = 'josh'" --- Fix  : double naming - Prefix Mapping!!!
+	public List<String> createMotifFilter() {
+		if (v!=null) {
 			String subjectFilter = v + "." + "name=" +"'"+ v+"'";
 			filterList.add(subjectFilter);
-		} */
-		if (e!=null) {
-			String predicateFilter = e + "." + "relationship=" +"'"+ e +"'";
-			return predicateFilter;
-		}
-		return predicateFilter;
+		} 
 		
-		//return filterList;
-		
-		/**if (p!=null) {
-			String predicateFilter= e+"."+"name="+p;
+		if (v2!=null) {
+			String objectFilter = v2 + "." + "name=" +"'"+ v2+"'";
+			filterList.add(objectFilter);
 		}
-		if (o!=null && o.isLiteral()) {
-			String objectFilter = e+"."+p+"="+o;
-		}**/
+		return filterList;
 		
 	}
-	
-	
-	
-	
-	
 
-	
 }

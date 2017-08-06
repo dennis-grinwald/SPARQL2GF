@@ -27,8 +27,10 @@ public class MotifBuilder {
 		//Abstract MotifFilter from concrete Nodes in SPARQL query
 		if (subject.isConcrete() || predicate.isConcrete() || object.isConcrete()) {
 			MotifFilter motifFilter = new MotifFilter(subject, predicate, object);
-			String filter = motifFilter.createMotifFilter();
-			SparqlToGfTranslator.addMotifFilter(filter);
+			List<String>filterList = motifFilter.createMotifFilter();
+			for (String filter:filterList) {
+				SparqlToGfTranslator.addMotifFilter(filter);
+			}
 		}
 	}
 
@@ -44,7 +46,14 @@ public class MotifBuilder {
 	}
 
 			
-
+// implement into own class : PREFIXES in the future
+	
+	public static String getURIValue(final String uri) {
+        return uri.substring(uri.indexOf("#") + 1);
+    }
+	
+	
+	
 }
 	
 
