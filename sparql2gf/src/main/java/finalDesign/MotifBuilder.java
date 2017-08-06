@@ -26,13 +26,13 @@ public class MotifBuilder {
 		
 		//Abstract MotifFilter from concrete Nodes in SPARQL query
 		if (subject.isConcrete() || predicate.isConcrete() || object.isConcrete()) {
-			MotifFilter motifFilter = new MotifFilter(subject, predicate, object) ;
+			MotifFilter motifFilter = new MotifFilter(subject, predicate, object);
 			String filter = motifFilter.createMotifFilter();
 			SparqlToGfTranslator.addMotifFilter(filter);
 		}
 	}
 
-	//transform the collected MotifPatterns in SparqlToGfTranslator.class into GraphFrames motif-Format
+	//TBD : FIX double-directed edges!!! transform the collected MotifPatterns in SparqlToGfTranslator.class into GraphFrames motif-Format
 	public static String organizePatternList(List<String> patternList) {
 		
 		String motif = new String();
