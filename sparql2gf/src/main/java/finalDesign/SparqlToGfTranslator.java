@@ -49,11 +49,7 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	
 		} **/
 		
-		if (motifFilter!=null) {
-			return graphframe.find(motif).filter(motifFilter);
-		}
 		return graphframe.find(motif).filter(motifFilter);
-		
 	}
     
 	

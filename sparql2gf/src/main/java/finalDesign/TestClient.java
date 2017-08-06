@@ -55,7 +55,7 @@ public class TestClient {
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
         
 		//create SPARQL query string
-		String queryString = "SELECT * WHERE { 's' ?p ?o }";
+		String queryString = "SELECT * WHERE { 'marko' ?p ?o }";
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation

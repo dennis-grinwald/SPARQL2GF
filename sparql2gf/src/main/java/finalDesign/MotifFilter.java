@@ -23,24 +23,34 @@ public class MotifFilter {
 		this.p = p;
 		this.o = o;
 		
-		if (!s.isConcrete()) {
-			this.v = s.getName();
-		}else {this.v=null;}
-		if (!p.isConcrete()) {
-			this.e = p.getName();
-		}else {this.e=null;}
-		if (!o.isConcrete()) {
-			this.v2 = o.getName();
-		}else {this.v=null;}
+		if (!s.isVariable()) {
+			if (s.isLiteral()) {
+				v=s.getLiteral().toString();
+			}else if (s.isURI()) {
+				v=s.getURI().toString();
+			}else if (s.isBlank()) {
+				v = null; }
+		}
+					
+	/*	if (!p.isVariable()) {
+			if (p.isLiteral()) {
+				p.getLiteral();
+			}else if (p.isURI()) {
+				p.getURI();
+			}else if (p.isBlank()) {
+				p = null;
+			}
+		} */
 	}
 	
 	public MotifFilter() {}
 	
-	public void createMotifFilter() {
+	public String createMotifFilter() {
 		if (s!=null) {
-			String subjectFilter= v+"."+"name="+s;
-			SparqlToGfTranslator.addMotifFilter(subjectFilter);
+			String subjectFilter= v+"."+"name="+"'"+s+"'";
+			return subjectFilter;
 		}
+		return subjectFilter;
 		/**if (p!=null) {
 			String predicateFilter= e+"."+"name="+p;
 		}
