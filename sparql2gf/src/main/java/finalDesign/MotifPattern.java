@@ -19,7 +19,8 @@ public class MotifPattern {
 		if (!p.isConcrete()) {
 			this.e = p.getName();
 		}else if (p.isURI()) {
-			this.e=MotifBuilder.getURIValue(p.toString());
+			PrefixBuilder prefix = new PrefixBuilder(p.getURI());
+			e= prefix.getUriValue();
 		}else {
 			this.e=p.toString();
 			e=e.substring(1, e.length()-1);	

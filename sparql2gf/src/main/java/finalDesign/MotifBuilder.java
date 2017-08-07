@@ -46,7 +46,7 @@ public class MotifBuilder {
 	}
 
 			
-// implement into own class : PREFIXES in the future
+// implement into own class "PREFIXES" in the future
 	
 	public static String getURIValue(final String uri) {
         return uri.substring(uri.indexOf("#") + 1);

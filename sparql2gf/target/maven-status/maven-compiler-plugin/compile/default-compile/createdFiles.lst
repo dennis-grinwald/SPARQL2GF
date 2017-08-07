@@ -6,6 +6,7 @@ sparql2gf/SparqlToGfTranslator.class
 testpackage/Client.class
 finalDesign/SparqlToGfTranslator.class
 finalDesign/TestClient.class
+finalDesign/PrefixBuilder.class
 testpackage/Walk.class
 testpackage/WalkOperations.class
 finalDesign/MotifPattern.class
