@@ -56,23 +56,23 @@ public class TestClient_RDF_noPrefix {
 		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
 		
-		graphFrame.vertices().show();
-		graphFrame.edges().show();
-		graphFrame.triplets().show();
+		graphFrame.vertices().show((int) graphFrame.vertices().count(), false);
+		graphFrame.edges().show((int) graphFrame.edges().count(), false);
+		graphFrame.triplets().show((int) graphFrame.triplets().count(), false);
         
 		//create SPARQL query string
 		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
 		
 		//QueryString with URIs-no prefix bindings
-		String queryString = "SELECT ?s WHERE { ?s <https://www.relation.de/created> <https://www.abc.de/Iop> }";
+		String queryString = "SELECT ?s WHERE {  ?s ?p <https://www.abc.de/person>  }";
 
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation
 		Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
 		
-		//Print DataFrame
-		graphQuery.show();
+		//Print DataFrame (show params: make sure that the whole output DataFrame is shown 
+		graphQuery.show((int) graphQuery.count(), false);
 	}	
 
 }

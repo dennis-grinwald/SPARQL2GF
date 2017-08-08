@@ -6,15 +6,15 @@ import java.util.List;
 import org.apache.jena.sparql.core.Var;
 
 public class MotifSelection {
-	
-	public List<String> selectionVars = new ArrayList<String>();
+
+	String selectVar;
 	
 	public MotifSelection(Var var) {
-		this.selectionVars.add(var.toString());
+		this.selectVar=var.getName();
 	}
 	
-	public void createSelection(Var var) {
-		SparqlToGfTranslator.addSelection(var.toString());
+	public String createSelection(Var var) {
+		return selectVar;
 	}
 	
 }

@@ -47,7 +47,7 @@ public class MotifFilter {
 				vs=v;
 			}else if (s.isURI()) {
 				vs=s.getURI();
-				PrefixBuilder subjectPrefix = new PrefixBuilder(p.getURI());
+				PrefixBuilder subjectPrefix = new PrefixBuilder(s.getURI());
 				v=subjectPrefix.getUriValue();
 			}else if (s.isBlank()) {
 				v = null;
