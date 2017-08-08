@@ -21,9 +21,6 @@ import org.apache.jena.sparql.core.Var;
 import org.apache.jena.shared.PrefixMapping;
 
 
-import testpackage.WalkOperations;
-
-
 //main class that translates SPARQL query into GraphFrame query, including Motifpattern, Projections/Selections,MotifFilter
 public class SparqlToGfTranslator extends OpVisitorBase {
 	
@@ -50,7 +47,7 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		//Apply query on GraphFrame, that is initialized by client
 		//return graphframe.find(motif);
 	    
-		
+		//Try to replace with stack-collection in the future
 		int number = motifFilterList.size();
 		Dataset<Row> gfQuery = null;
 		switch (number) {

@@ -1,4 +1,4 @@
-package finalDesign;
+package testpackage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,8 @@ import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 import org.graphframes.GraphFrame;
+
+import finalDesign.SparqlToGfTranslator;
 
 public class TestClient {
 
@@ -58,10 +60,10 @@ public class TestClient {
 		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
 		
 		//QueryString with URIs-no prefix bindings
-		String queryString = ""
-				+ "PREFIX abc: <www.example.de/>"
-				+ ""
-				+ "SELECT ?p WHERE { ?s	abc:created 'IOP' }";
+		String queryString = "PREFIX foaf:   <http://xmlns.com/foaf/0.1/>\n" + 
+				"SELECT ?name ?mbox\n" + 
+				"WHERE\n" + 
+				"  { ?x foaf:created ?personName }";
 
 		
 		

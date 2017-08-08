@@ -1,12 +1,9 @@
-sparql2gf/MotifBuilder.class
+testpackage/TestClient.class
+finalDesign/PrefixBuilder.class
 finalDesign/MotifFilter.class
 finalDesign/MotifBuilder.class
-testpackage/Element.class
-sparql2gf/SparqlToGfTranslator.class
-testpackage/Client.class
+testpackage/TestClient_withURI_noPrefix.class
+first_attempt_OUTDATED/SparqlToGfTranslator.class
+first_attempt_OUTDATED/MotifBuilder.class
 finalDesign/SparqlToGfTranslator.class
-finalDesign/TestClient.class
-finalDesign/PrefixBuilder.class
-testpackage/Walk.class
-testpackage/WalkOperations.class
 finalDesign/MotifPattern.class

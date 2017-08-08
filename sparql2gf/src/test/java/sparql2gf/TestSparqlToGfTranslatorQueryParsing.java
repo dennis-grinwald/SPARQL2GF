@@ -1,5 +1,7 @@
 package sparql2gf;
 
+import first_attempt_OUTDATED.SparqlToGfTranslator;
+
 public class TestSparqlToGfTranslatorQueryParsing {
 
 	public static void main(String[] args) {

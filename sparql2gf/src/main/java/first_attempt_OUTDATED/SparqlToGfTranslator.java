@@ -1,4 +1,4 @@
-package testpackage;
+package first_attempt_OUTDATED;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,43 +13,42 @@ import org.apache.jena.sparql.algebra.OpWalker;
 import org.apache.jena.sparql.algebra.op.OpBGP;
 import org.apache.jena.sparql.algebra.op.OpProject;
 
-public class Walk extends OpVisitorBase {
+
+/**This is the main class that translates a SPARQL query from a client to a GraphFrame Motif**/
+
+public class SparqlToGfTranslator extends OpVisitorBase {
 	
-	public static ArrayList<String> motifList;
 	
-	public Walk() {}
 	
-	public void translateQuery(String queryString) {
+//Initializes the translation of SPARQL to GraphFrame Motif
+//Takes a queryString defined by user as input
+public void translateQuery(String queryString) {
 		
+	
+	
+	    //Parse SPARQL query string
 		Query query= QueryFactory.create(queryString);
+	
+		//Create an Algebra tree of the Query object
 		Op opRoot = Algebra.compile(query);
+		
+		//Walk the Algebra tree recursively, translating it's BGPs to motifPatterns
 		OpWalker.walk(opRoot, this); 
 	}
     
+
+
 	public void visit(OpBGP opBGP) {
 		System.out.println("BGP recognized : "+opBGP);
-		
-		final List<Triple> triples = opBGP.getPattern().getList();		String motifTemp = new String();
-		final List<String> motifList = new ArrayList<String>();
-		
-		for (final Triple triple : triples) {	
-			
-			WalkOperations.transform(triple);
-			
-	
-		}
-			
 	}
     public void visit(OpProject opProject) {
     	System.out.println("Project recognized : "+opProject);
    
     }
-    
-}
+
+	
+} 
+	
 	
 	
 
-	
-	
-	
-	

@@ -1,4 +1,4 @@
-package sparql2gf;
+package first_attempt_OUTDATED;
 
 import java.util.ArrayList;
 

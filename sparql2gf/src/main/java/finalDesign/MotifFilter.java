@@ -51,7 +51,7 @@ public class MotifFilter {
 				e=p.getLiteral().toString();
 			}else if (p.isURI()) {
 				PrefixBuilder prefix = new PrefixBuilder(p.getURI());
-				e= prefix.getUriValue();
+				//e= p.getURI();
 			}else if (p.isBlank()) {
 				e = null;
 			}
@@ -78,7 +78,7 @@ public class MotifFilter {
 		} 
 		
 		if (e!=null) {
-			String predicateFilter = e + "." + "relationship=" +"'"+ e +"'";
+			String predicateFilter = e + "." + "relationship=" +"'"+ p.getURI() +"'";
 			filterList.add(predicateFilter);
 		} 
 		
