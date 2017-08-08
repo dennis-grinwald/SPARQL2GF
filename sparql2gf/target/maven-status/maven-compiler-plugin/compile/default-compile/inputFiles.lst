@@ -1,10 +1,8 @@
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/PrefixBuilder.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/first_attempt_OUTDATED/MotifBuilder.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/first_attempt_OUTDATED/SparqlToGfTranslator.java
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifBuilder.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/testpackage/TestClient_withURI_noPrefix.java
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifPattern.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/testpackage/TestClient.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/client/TestClient_RDF_noPrefix.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/client/TestClient.java
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifFilter.java
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifSelection.java
 /home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/SparqlToGfTranslator.java

@@ -13,6 +13,8 @@ public class MotifSelection {
 		this.selectionVars.add(var.toString());
 	}
 	
+	public void createSelection(Var var) {
+		SparqlToGfTranslator.addSelection(var.toString());
+	}
 	
-
 }

@@ -26,6 +26,7 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	
 	public static List<String> patternList = new ArrayList<String>();
 	public static List<String> motifFilterList = new ArrayList<String>();
+	public static List<String> motifSelectionList = new ArrayList<String>();
 
 
 	public static Dataset<Row> translateQuery(GraphFrame graphframe, String queryString) {
@@ -43,6 +44,10 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 		
 		//create final MotifPattern by organizing collected MotifPatterns
 		String motifPattern = MotifBuilder.organizePatternList(patternList);
+		
+		for (String select : motifSelectionList) {
+			System.out.println(select);
+		}
 		
 		//Apply query on GraphFrame, that is initialized by client
 		//return graphframe.find(motif);
@@ -82,7 +87,7 @@ public class SparqlToGfTranslator extends OpVisitorBase {
     	final List<Var> vars = new ArrayList<Var>();
     	for(Var var : vars) {
         MotifSelection selection = new MotifSelection(var);
-          		
+        selection.createSelection(var);  		
     	}
     	  	
    
@@ -96,5 +101,9 @@ public class SparqlToGfTranslator extends OpVisitorBase {
 	
 	public static void addMotifFilter(String filter) {
 		motifFilterList.add(filter);
+	}
+	
+	public static void addSelection(String selection) {
+		motifSelectionList.add(selection);
 	}
 }
