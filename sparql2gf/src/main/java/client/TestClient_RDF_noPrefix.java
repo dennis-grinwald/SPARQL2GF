@@ -63,8 +63,8 @@ public class TestClient_RDF_noPrefix {
 		//create SPARQL query string
 		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
 		
-		//QueryString with URIs-no prefix bindings
-		String queryString = "SELECT ?s WHERE {  ?s ?p <https://www.abc.de/person>  }";
+		//Various testQueryStrings with URIs-no prefix bindings
+		String queryString = "SELECT ?developerAge WHERE {  ?s <https://www.relation.de/created> <https://www.abc.de/iop> . ?s <https://www.age.de/age> ?developerAge }";
 
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
