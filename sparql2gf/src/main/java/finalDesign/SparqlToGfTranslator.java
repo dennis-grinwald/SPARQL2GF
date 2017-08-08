@@ -81,12 +81,10 @@ public class SparqlToGfTranslator extends OpVisitorBase {
     	System.out.println("Project recognized : "+opProject);
     	final List<Var> vars = new ArrayList<Var>();
     	for(Var var : vars) {
-    		//MotifProjection projection = new MotifProjection(var);
-    		
-    		
+        MotifSelection selection = new MotifSelection(var);
+          		
     	}
-    	
-    	
+    	  	
    
     }
 	

@@ -50,22 +50,22 @@ public class TestClient_withURI_noPrefix {
 		
 		/*Populate DataFrames with input data*/
 		
-		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/vertices2.csv");
-		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/edges2.csv");
+		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/testdata_RDF/vertices2.csv");
+		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/testdata_RDF/edges2.csv");
 		
 		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
+		
+		graphFrame.vertices().show();
+		graphFrame.edges().show();
+		graphFrame.triplets().show();
         
 		//create SPARQL query string
 		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
 		
 		//QueryString with URIs-no prefix bindings
-		String queryString = "SELECT * WHERE {?s <https://www.relation.de/created> ?o}";
+		String queryString = "SELECT * WHERE { ?s <https://www.relation.de/created> <https://www.abc.de/Iop> }";
 
-		
-		
-		
-		
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation

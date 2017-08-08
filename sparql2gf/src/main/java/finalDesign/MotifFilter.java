@@ -16,6 +16,11 @@ public class MotifFilter {
 	public String e;
 	public String v2;
 	
+	//these string variables are relevant ONLY for MotifFilterBuilding, therefore only here present!!!
+	public String vs;
+	public String ep;
+	public String v2o;
+	
 	public String subjectFilter;
 	public String predicateFilter;
 	public String objectFilter;
@@ -23,7 +28,7 @@ public class MotifFilter {
 	public List<String> filterList = new ArrayList<String>();
 	
 	
-	//FIX URI/Prefix usage!!!
+	//FIX URI/Prefix usage!!! --- In order to add new node types (e.g. literal,uri ...etc. appropriate mappings have to be added here !)
 	public MotifFilter(Node s, Node p, Node o) {
 		this.s = s;
 		this.p = p;
@@ -39,8 +44,11 @@ public class MotifFilter {
 		if (!s.isVariable()) {
 			if (s.isLiteral()) {
 				v=s.getLiteral().toString();
+				vs=v;
 			}else if (s.isURI()) {
-				v=s.getURI();
+				vs=s.getURI();
+				PrefixBuilder subjectPrefix = new PrefixBuilder(p.getURI());
+				v=subjectPrefix.getUriValue();
 			}else if (s.isBlank()) {
 				v = null;
 			}
@@ -49,22 +57,28 @@ public class MotifFilter {
 		if (!p.isVariable()) {
 			if (p.isLiteral()) {
 				e=p.getLiteral().toString();
+				ep=e;
 			}else if (p.isURI()) {
-				PrefixBuilder prefix = new PrefixBuilder(p.getURI());
-				//e= p.getURI();
+				ep=p.getURI();
+				PrefixBuilder predicatePrefix = new PrefixBuilder(p.getURI());
+				e= predicatePrefix.getUriValue();
 			}else if (p.isBlank()) {
 				e = null;
 			}
 		}
-	/**	if (!o.isVariable()) {
+		if (!o.isVariable()) {
 			if (o.isLiteral()) {
 				v2=o.getLiteral().toString();
+				v2o=v2;
 			}else if (o.isURI()) {
-				v2=o.getURI();
+				v2o=o.getURI();
+				PrefixBuilder objectPrefix = new PrefixBuilder(o.getURI());
+				v2=objectPrefix.getUriValue();
+				
 			}else if (o.isBlank()) {
 				v2 = null;
 			}
-		}   **/
+		}   
 	}
 	
 	public MotifFilter() {}
@@ -73,18 +87,18 @@ public class MotifFilter {
 	//creates MotifFilter in GraphFrame syntax : e.g. "josh(as vertex).name = 'josh'" --- Fix  : double naming - Prefix Mapping!!!
 	public List<String> createMotifFilter() {
 		if (v!=null) {
-			String subjectFilter = v + "." + "name=" +"'"+ v+"'";
+			String subjectFilter = v + "." + "name=" +"'"+ vs+"'";
 			filterList.add(subjectFilter);
 		} 
 		
 		if (e!=null) {
-			String predicateFilter = e + "." + "relationship=" +"'"+ p.getURI() +"'";
+			String predicateFilter = e + "." + "relationship=" +"'"+ ep +"'";
 			filterList.add(predicateFilter);
 		} 
 		
 		
 		if (v2!=null) {
-			String objectFilter = v2 + "." + "name=" +"'"+ v2+"'";
+			String objectFilter = v2 + "." + "name=" +"'"+ v2o+"'";
 			filterList.add(objectFilter);
 		}
 		return filterList;

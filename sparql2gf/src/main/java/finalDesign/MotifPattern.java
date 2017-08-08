@@ -13,7 +13,7 @@ public class MotifPattern {
 		if (!s.isConcrete()) {
 			this.v = s.getName();
 		}else if (s.isURI()) {
-			PrefixBuilder subjectPrefix = new PrefixBuilder(p.getURI());
+			PrefixBuilder subjectPrefix = new PrefixBuilder(s.getURI());
 			v= subjectPrefix.getUriValue();
 		}else {
 			this.v=s.toString();
@@ -31,7 +31,7 @@ public class MotifPattern {
 		if (!o.isConcrete()) {
 			this.v2 = o.getName();
 		}else if (o.isURI()) {
-			PrefixBuilder objectPrefix = new PrefixBuilder(p.getURI());
+			PrefixBuilder objectPrefix = new PrefixBuilder(o.getURI());
 			v2= objectPrefix.getUriValue();
 		}else {
 			this.v2=o.toString();
