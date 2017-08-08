@@ -15,7 +15,7 @@ import org.graphframes.GraphFrame;
 
 import finalDesign.SparqlToGfTranslator;
 
-public class TestClient_withURI_noPrefix {
+public class TestClient_RDF_noPrefix {
 
 	public static void main(String[] args) {
 		SparkConf conf = new SparkConf().setAppName("test").setMaster("local");

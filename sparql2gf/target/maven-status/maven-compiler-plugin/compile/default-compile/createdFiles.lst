@@ -1,10 +1,10 @@
 finalDesign/MotifFilter.class
 finalDesign/MotifBuilder.class
-testpackage/TestClient_withURI_noPrefix.class
 finalDesign/MotifSelection.class
 finalDesign/SparqlToGfTranslator.class
 testpackage/TestClient.class
 finalDesign/PrefixBuilder.class
+testpackage/TestClient_RDF_noPrefix.class
 first_attempt_OUTDATED/SparqlToGfTranslator.class
 first_attempt_OUTDATED/MotifBuilder.class
 finalDesign/MotifPattern.class
