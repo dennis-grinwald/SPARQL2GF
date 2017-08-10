@@ -8,7 +8,7 @@ public class PrefixBuilder {
 	
 	public PrefixBuilder(String uri) {
 		this.uri = uri;
-		this.uriValue = uri.substring(uri.lastIndexOf("/")+1, uri.length());
+		PrefixBuilder.uriValue = uri.substring(uri.lastIndexOf("/")+1, uri.length());
 	}
 
 	
