@@ -1,4 +1,4 @@
-# SPARQL2GF
+# SPARQL-to-GraphFrames Translator
 This is an attempt to translate SPARQL-query into a GraphFrame query
 
 MotifPattern:
