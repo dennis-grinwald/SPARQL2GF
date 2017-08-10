@@ -1,6 +1,8 @@
 # SPARQL-to-GraphFrames Translator
 This is an attempt to translate SPARQL-query into a GraphFrame query
+
 The translator is currently being tested against large RDF datasets
+
 A full setup-tutorial will be posted here, once the testing has approved the translator's functionality
 
 MotifPattern:
