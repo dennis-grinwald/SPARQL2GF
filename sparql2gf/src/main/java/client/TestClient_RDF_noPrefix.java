@@ -64,8 +64,12 @@ public class TestClient_RDF_noPrefix {
 		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
 		
 		//Various testQueryStrings with URIs-no prefix bindings
-		String queryString = "SELECT ?developerAge WHERE {  ?s <https://www.relation.de/created> <https://www.abc.de/iop> . ?s <https://www.age.de/age> ?developerAge }";
-
+		//String queryString = "SELECT ?developerAge WHERE {  ?s <https://www.relation.de/created> <https://www.abc.de/iop> . ?s <https://www.age.de/age> ?developerAge }";
+        //String queryString = "SELECT * WHERE {  ?s ?p ?o }";
+		//String queryString = "SELECT ?petersCreations WHERE {  <https://www.abc.de/peter> <https://www.relation.de/created> ?petersCreations }";
+		//BUG String queryString = "SELECT * {  <https://abc.de/marko> ?p ?o }";
+		//String queryString = "SELECT ?personNode WHERE { ?personNode <https://www.relation.de/label> <https://www.abc.de/person> } ";
+		String queryString = "SELECT ?s WHERE { ?s <https://www.relation.de/knows> <https://www.abc.de/josh> }";
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation
