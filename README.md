@@ -1,7 +1,7 @@
 # SPARQL-to-GraphFrames Translator
 This is an attempt to translate SPARQL-query into a GraphFrame query
 The translator is currently being tested against large RDF datasets
-A Full-stack tutorial will be posted here, once the testing has approved the translator's functionality!
+A full setup-tutorial will be posted here, once the testing has approved the translator's functionality
 
 MotifPattern:
 ---
@@ -17,4 +17,4 @@ MotifFilter:
 MotifProjection 
 ---
 * Single variable projection works!
-* TBD: mulit-variable projection
+* TBD: multi-variable projection
