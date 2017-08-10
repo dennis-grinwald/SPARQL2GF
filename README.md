@@ -14,6 +14,5 @@ MotifFilter:
 
 MotifProjection - TBD
 ---
-Details:
 * Single variable projection works!
 * TBD: mulit-variable projection
