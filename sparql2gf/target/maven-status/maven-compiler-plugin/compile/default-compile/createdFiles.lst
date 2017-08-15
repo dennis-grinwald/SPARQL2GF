@@ -1,8 +1,9 @@
-finalDesign/PrefixBuilder.class
-finalDesign/MotifFilter.class
-client/TestClient.class
-finalDesign/MotifBuilder.class
-client/TestClient_RDF_noPrefix.class
-finalDesign/MotifSelection.class
-finalDesign/SparqlToGfTranslator.class
-finalDesign/MotifPattern.class
+sparql2gf_client/TestClient_RDF_noPrefix.class
+sparql2gf_graph_builder/NTripleToCSV_Compiler.class
+sparql2gf_query_translator/MotifSelection.class
+sparql2gf_query_translator/MotifBuilder.class
+sparql2gf_query_translator/SparqlToGfTranslator.class
+sparql2gf_query_translator/PrefixBuilder.class
+sparql2gf_query_translator/MotifPattern.class
+sparql2gf_client/TestClient.class
+sparql2gf_query_translator/MotifFilter.class

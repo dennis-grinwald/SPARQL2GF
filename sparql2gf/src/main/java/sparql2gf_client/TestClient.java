@@ -1,4 +1,4 @@
-package client;
+package sparql2gf_client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 import org.graphframes.GraphFrame;
 
-import finalDesign.SparqlToGfTranslator;
+import sparql2gf_query_translator.SparqlToGfTranslator;
 
 public class TestClient {
 

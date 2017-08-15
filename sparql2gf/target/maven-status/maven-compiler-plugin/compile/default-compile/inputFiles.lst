@@ -1,8 +1,9 @@
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/PrefixBuilder.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifBuilder.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifPattern.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/client/TestClient_RDF_noPrefix.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/client/TestClient.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifFilter.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/MotifSelection.java
-/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/finalDesign/SparqlToGfTranslator.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_client/TestClient_RDF_noPrefix.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/MotifFilter.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/MotifBuilder.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/SparqlToGfTranslator.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/MotifPattern.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_graph_builder/NTripleToCSV_Compiler.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/PrefixBuilder.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_query_translator/MotifSelection.java
+/home/dennis/git/SPARQL2GF/sparql2gf/src/main/java/sparql2gf_client/TestClient.java

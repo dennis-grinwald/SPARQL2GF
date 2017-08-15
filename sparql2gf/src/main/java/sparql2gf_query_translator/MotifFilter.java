@@ -1,4 +1,4 @@
-package finalDesign;
+package sparql2gf_query_translator;
 
 import java.util.ArrayList;
 import java.util.List;

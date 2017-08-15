@@ -1,4 +1,4 @@
-package client;
+package sparql2gf_client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,8 @@ import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 import org.graphframes.GraphFrame;
 
-import finalDesign.SparqlToGfTranslator;
+
+import sparql2gf_query_translator.SparqlToGfTranslator;
 
 public class TestClient_RDF_noPrefix {
 
@@ -27,8 +28,8 @@ public class TestClient_RDF_noPrefix {
 		
 		List<StructField> verFields = new ArrayList<StructField>() ;
 		
-		verFields.add(DataTypes.createStructField("id", DataTypes.LongType, true));
-		verFields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
+		verFields.add(DataTypes.createStructField("id", DataTypes.StringType, true));
+		//verFields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("language", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("age", DataTypes.IntegerType, true));
@@ -40,9 +41,9 @@ public class TestClient_RDF_noPrefix {
 		
 		List<StructField> edgFields = new ArrayList<StructField>();
 		
-		edgFields.add(DataTypes.createStructField("src", DataTypes.LongType, true));
-		edgFields.add(DataTypes.createStructField("dst", DataTypes.LongType, true));
-		edgFields.add(DataTypes.createStructField("relationship", DataTypes.StringType, true));
+		edgFields.add(DataTypes.createStructField("src", DataTypes.StringType, true));
+		edgFields.add(DataTypes.createStructField("dst", DataTypes.StringType, true));
+		edgFields.add(DataTypes.createStructField("relation", DataTypes.StringType, true));
 		//edgFields.add(DataTypes.createStructField("weight", DataTypes.FloatType, true));
 		//edgFields.add(DataTypes.createStructField("id", DataTypes.LongType, true));
 		
@@ -56,6 +57,7 @@ public class TestClient_RDF_noPrefix {
 		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
 		
+		//show parameters: show whole width of table
 		graphFrame.vertices().show((int) graphFrame.vertices().count(), false);
 		graphFrame.edges().show((int) graphFrame.edges().count(), false);
 		graphFrame.triplets().show((int) graphFrame.triplets().count(), false);
@@ -78,6 +80,8 @@ public class TestClient_RDF_noPrefix {
 		
 		//Print DataFrame (show params: make sure that the whole output DataFrame is shown 
 		graphQuery.show((int) graphQuery.count(), false);
+		graphQuery.show((int) graphQuery.count(), false);
+		
 	}	
 
 }
