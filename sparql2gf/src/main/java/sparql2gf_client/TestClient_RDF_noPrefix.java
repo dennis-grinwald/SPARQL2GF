@@ -30,7 +30,6 @@ public class TestClient_RDF_noPrefix {
 		
 		verFields.add(DataTypes.createStructField("id", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
-		//verFields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("language", DataTypes.StringType, true));
 		//verFields.add(DataTypes.createStructField("age", DataTypes.IntegerType, true));
 		
@@ -43,7 +42,7 @@ public class TestClient_RDF_noPrefix {
 		
 		edgFields.add(DataTypes.createStructField("src", DataTypes.StringType, true));
 		edgFields.add(DataTypes.createStructField("dst", DataTypes.StringType, true));
-		edgFields.add(DataTypes.createStructField("relation", DataTypes.StringType, true));
+		edgFields.add(DataTypes.createStructField("relationship", DataTypes.StringType, true));
 		//edgFields.add(DataTypes.createStructField("weight", DataTypes.FloatType, true));
 		//edgFields.add(DataTypes.createStructField("id", DataTypes.LongType, true));
 		
@@ -51,22 +50,22 @@ public class TestClient_RDF_noPrefix {
 		
 		/*Populate DataFrames with input data*/
 		
-		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/testdata_RDF/vertices2.csv");
-		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/testdata_RDF/edges2.csv");
+		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/testdata_RDF/vertexCSV.csv");
+		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/testdata_RDF/edgeCSV.csv");
 		
 		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
 		
 		//show parameters: show whole width of table
-		graphFrame.vertices().show((int) graphFrame.vertices().count(), false);
-		graphFrame.edges().show((int) graphFrame.edges().count(), false);
-		graphFrame.triplets().show((int) graphFrame.triplets().count(), false);
+		//graphFrame.vertices().show((int) graphFrame.vertices().count(), false);
+		//graphFrame.edges().show((int) graphFrame.edges().count(), false);
+		//graphFrame.triplets().show((int) graphFrame.triplets().count(), false);
         
 		//create SPARQL query string
-		//String queryString = "SELECT ?p WHERE { 'josh' ?p 'IOP' }";
+		String queryString = "SELECT ?o WHERE { ?s <http://purl.org/dc/elements/1.1/date> ?o }";
 		
 		//Various testQueryStrings with URIs-no prefix bindings
-		String queryString = "SELECT ?developerAge WHERE {  ?s <https://www.relation.de/created> <https://www.abc.de/iop> . ?s <https://www.age.de/age> ?developerAge }";
+		//String queryString = "SELECT * WHERE { ?s ?p ?o}";
         //String queryString = "SELECT * WHERE {  ?s ?p ?o }";
 		//String queryString = "SELECT ?petersCreations WHERE {  <https://www.abc.de/peter> <https://www.relation.de/created> ?petersCreations }";
 		//BUG String queryString = "SELECT * WHERE {  <https://abc.de/marko> ?p ?o }";
@@ -76,11 +75,10 @@ public class TestClient_RDF_noPrefix {
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation
-		Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
+	//	Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
 		
 		//Print DataFrame (show params: make sure that the whole output DataFrame is shown 
-		graphQuery.show((int) graphQuery.count(), false);
-		graphQuery.show((int) graphQuery.count(), false);
+	 //   graphQuery.show((int) graphQuery.count(), false);
 		
 	}	
 

@@ -86,21 +86,33 @@ public class MotifFilter {
 	/**Should also be able to be able to apply operations such as : josh.age='23' **/
 	//creates MotifFilter in GraphFrame syntax : e.g. "josh(as vertex).name = 'josh'" --- Fix  : double naming - Prefix Mapping!!!
 	public List<String> createMotifFilter() {
+		
 		if (v!=null) {
-			String subjectFilter = v + "." + "name=" +"'"+ vs+"'";
+			String subjectFilter = v + "." + "id=" +"'"+ vs+"'";
 			filterList.add(subjectFilter);
 		} 
+		
+		
+		/*if (v!=null) {
+			String subjectFilter = v + "." + "name=" +"'"+ vs+"'";
+			filterList.add(subjectFilter);
+		} */
 		
 		if (e!=null) {
 			String predicateFilter = e + "." + "relationship=" +"'"+ ep +"'";
 			filterList.add(predicateFilter);
 		} 
 		
-		
 		if (v2!=null) {
+			String objectFilter = v2 + "." + "id" +"'"+ v2o+"'";
+			filterList.add(objectFilter);
+		}		
+		
+		
+		/*if (v2!=null) {
 			String objectFilter = v2 + "." + "name=" +"'"+ v2o+"'";
 			filterList.add(objectFilter);
-		}
+		} */
 		return filterList;
 		
 	}
