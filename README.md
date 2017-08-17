@@ -18,10 +18,10 @@ GraphFrames, an Apache Spark compatible package uses Spark's lightning fast comp
 
 Architecture
 ---
-The SPARQL-to-GraphFrames Translator queries and RDF graph using the SPARQL querying language:
-1. The RDF graph, which is represented in n-triple format is split into and vertex and edge Spark SQL DataFrame and concatenated to a GraphFrame, representing the Graph of data
-2. A SPARQL-query created by the client is translated into GraphFrames Query Language
-3. The GraphFrame is queried and shows the output as a DataFrame - another GraphFrame can be created using that DataFrame
+Translator consists of 3 main components:
+1. A GraphBuilder uses RDF's n-triple format and outputs an edge and vertex Spark SQL DataFrame
+2. Apache Jena's ARQ query processor that parses the SPARQL query-string and transforms the String to an Algebra Tree (opRoot)
+3. A SPARQL to GraphFrames Translator class that walks the Algebra tree bottom up, translating the SPARQL ALgebra to GraphFrames to a GraphFrame Algebra 
 
 
 MotifPattern:
