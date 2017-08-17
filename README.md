@@ -1,4 +1,5 @@
-# SPARQL-to-GraphFrames Translator
+# SPARQL-to-GraphFrames
+SPARQL-to-GraphFrames is a compiler that allows to run SPARQL queries on large RDF graphs using the Apache Spark GraphFrames package.
 
 Introduction
 ---
