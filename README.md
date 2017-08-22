@@ -4,7 +4,7 @@ The Translator uses RDF datasets in n-triple format and SPARQL query strings as 
 http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/spec/BenchmarkRules/index.html#datagenerator
 
 
-## Introduction
+Introduction
 ---
 extract from my blogpost ...hyperlink...
 Living in a higly connected world, a large amount of related data is created on a daily base. Nevertheless the fact that these relationships provide valuable information, most relationships get lost once the data is stored in a database. The graph data stored in graph databases face this challenge of isolated information by addressing relationships as their first class citizens.
@@ -12,7 +12,7 @@ Graphs allow complex queries and to help understand the impact of some related d
 GraphFrames, an Apache Spark compatible package uses Spark's lightning fast computing and ability to run on top of various distributed filesystems and databases makes it a great tool for Big Data applications using the graph data model.
 
 
-## Architecture
+Architecture
 ---
 Translator consists of 3 main components:
 1. A GraphBuilder uses RDF's n-triple format and outputs an edge and vertex Spark SQL DataFrame
@@ -24,19 +24,19 @@ If another modification needs to be done on the Algebra tree, just extend the Op
 
 At this point the following Algebra epressions can be translated into a GraphFrame query:
 
-BGP:
----
+**BGP:**
+
 * Enable basic pattern usage - DONE
 * TBD: double-directed triples with same edge-relation (e.g. "?s ?p ?o . ?o ?p ?s" )
 
-BGP-filter:
----
+**BGP-filter:**
+
 * Basic Filtering - DONE
 * Enable URI usage - DONE
 * TBD: PREFIX Mapping 
 
-Projection
----
+**Projection**
+
 * Single variable projection - DONE
 * TBD: multi-variable projection
 
