@@ -42,12 +42,15 @@ At this point the following Algebra epressions can be translated into a GraphFra
 
 Testing:
 ---
-* 2.000.000+ triples have been queried in a single node setup
-* BGP, Projection queries are 
+* 2.000.000+ triples have been queried in a single node setup 
+* Querying multiple triples in BGP
+* Quering multiple Projections in BGP
 
-**TBD:**
+**Next steps:**
 
-* Application is being tested on HDFS cluster setup
+* Test application on HDFS cluster setup
+* Test application with larger datasets(goal = 10 Billion triples)
+
 
 
 
