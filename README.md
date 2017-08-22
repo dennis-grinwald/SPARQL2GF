@@ -1,6 +1,7 @@
 # SPARQL-to-GraphFrames
 SPARQL-to-GraphFrames is an open-source compiler that allows to run SPARQL queries on large RDF graphs using the Apache Spark GraphFrames package.
-The Translator uses RDF datasets in n-triple format and SPARQL query strings as it's input. Test RDF datasets can be generated using the Berlin SPARQL Benchmark (BSBM)-data generator, see http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/spec/BenchmarkRules/index.html#datagenerator
+The Translator uses RDF datasets in n-triple format and SPARQL query strings as it's input. Test RDF datasets can be generated using the Berlin SPARQL Benchmark (BSBM)-data generator: 
+http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/spec/BenchmarkRules/index.html#datagenerator
 
 testing: 
 * 2.000.000+ triples have been queried in a single node setup
