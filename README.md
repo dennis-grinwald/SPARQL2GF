@@ -8,7 +8,7 @@ Testing:
 * 2.000.000+ triples have been queried in a single node setup
 * BGP, Projection queries are 
 
-**TBD:
+**TBD:**
 
 * Application is being tested on HDFS cluster setup
 
