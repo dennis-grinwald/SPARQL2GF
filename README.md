@@ -26,19 +26,16 @@ At this point the following Algebra epressions can be translated into a GraphFra
 
 BGP:
 ---
----
 * Enable basic pattern usage - DONE
 * TBD: double-directed triples with same edge-relation (e.g. "?s ?p ?o . ?o ?p ?s" )
 
 BGP-filter:
----
 ---
 * Basic Filtering - DONE
 * Enable URI usage - DONE
 * TBD: PREFIX Mapping 
 
 Projection
----
 ---
 * Single variable projection - DONE
 * TBD: multi-variable projection
