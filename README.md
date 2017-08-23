@@ -6,9 +6,7 @@ http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/spec/Benc
 
 Introduction
 ---
-Living in a higly connected world, a large amount of related data is created on a daily base. Nevertheless the fact that these relationships provide valuable information, most relationships get lost once the data is stored in a database. The graph data stored in graph databases face this challenge of isolated information by addressing relationships as their first class citizens.
-Graphs allow complex queries and to help understand the impact of some related data that otherwise may have never been explored.
-GraphFrames, an Apache Spark compatible package uses Spark's lightning fast computing and ability to run on top of various distributed filesystems and databases makes it a great tool for Big Data applications using the graph data model.
+Living in a highly connected world a large amount of related data is created on a daily basis. Nevertheless the fact that these relationships enable us to have an idea of the impact, that some actions cause, they often get lost once the data is stored in common relational tables or other general NoSQL data models.
 For full Blogpost, see:
 
 
