@@ -16,7 +16,7 @@ Architecture
 ---
 Translator consists of 3 main components:
 1. A GraphBuilder uses RDF's n-triple format and outputs an edge and vertex Spark SQL DataFrame
-2. Apache Jena's ARQ query processor that parses the SPARQL query-string and transforms the String into an Algebra tree(opRoot) by applying a Visitor to each Algebra Expression. For more information about the Visitor Pattern ...HyperLink...
+2. Apache Jena's ARQ query processor that parses the SPARQL query-string and transforms the String into an Algebra tree(opRoot) by applying a Visitor to each Algebra Expression. For more information about the Visitor Pattern, see https://en.wikipedia.org/wiki/Visitor_pattern
 3. A SPARQL-to-GraphFrames Translator(SparqlToGfTranslator) class that walks the Algebra tree bottom up, translating the SPARQL ALgebra into a GraphFrame Algebra
 
 Core functionality of the Query translation is applying a Visitor(see "2." for more information about Visitor pattern) to each Algebra expression by extending ARQ's OpVisitorBase class. That way the main Algebra element classes(e.g OpBGP) don't have to be modified themselves.
