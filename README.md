@@ -8,7 +8,7 @@ Introduction
 ---
 Living in a highly connected world a large amount of related data is created on a daily basis. Nevertheless the fact that these relationships enable us to have an idea of the impact, that some actions cause, they often get lost once the data is stored in common relational tables or other general NoSQL data models.
 For full Blogpost, see:
-
+https://medium.com/@dgrinwald93/make-data-connected-again-9a56627601b4
 
 Architecture
 ---
@@ -43,6 +43,15 @@ Testing:
 * 2.000.000+ triples have been queried in a single node setup 
 * Querying multiple triples in BGP
 * Quering multiple Projections in BGP
+
+Quickstart
+---
+Please apply following steps to use the translator:
+
+1. Pull repository
+2. Run build on pom.xml-file
+3. Open class: SPARQL2GF/sparql2gf/src/main/java/sparql2gf_client/TestClient_RDF_noPrefix.java 
+4. Run the various test-querystrings starting at line 67
 
 **Next steps:**
 
