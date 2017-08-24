@@ -51,7 +51,7 @@ Please apply following steps to use the translator:
 1. Pull repository
 2. Run build on pom.xml-file
 3. Open class: SPARQL2GF/sparql2gf/src/main/java/sparql2gf_client/TestClient_RDF_noPrefix.java 
-4. Run the various test-querystrings starting at line 67
+4. Run the various test-querystrings
 
 **Next steps:**
 
