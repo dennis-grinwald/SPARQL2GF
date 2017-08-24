@@ -19,7 +19,7 @@ import sparql2gf_query_translator.SparqlToGfTranslator;
 public class TestClient_RDF_noPrefix {
 
 	public static void main(String[] args) {
-		SparkConf conf = new SparkConf().setAppName("test").setMaster("local");
+		SparkConf conf = new SparkConf().setAppName("test").setMaster("local[2]");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext spark = new SQLContext(sc);
 		
@@ -50,8 +50,8 @@ public class TestClient_RDF_noPrefix {
 		
 		/*Populate DataFrames with input data*/
 		
-		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/testdata_RDF/vertexCSV.csv");
-		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/testdata_RDF/edgeCSV.csv");
+		Dataset<Row> vertexraw = spark.read().format("csv").option("header",true).schema(verSchema).load("data/testdata_RDF/vertices.csv");
+		Dataset<Row> edgeraw = spark.read().format("csv").option("header",true).schema(edgSchema).load("data/testdata_RDF/edges.csv");
 		
 		//create a GraphFrame
 		GraphFrame graphFrame = new GraphFrame(vertexraw,edgeraw);
@@ -75,10 +75,12 @@ public class TestClient_RDF_noPrefix {
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation
-	//	Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
+		Dataset<Row> graphQuery = SparqlToGfTranslator.translateQuery(graphFrame, queryString);
 		
 		//Print DataFrame (show params: make sure that the whole output DataFrame is shown 
-	 //   graphQuery.show((int) graphQuery.count(), false);
+	    graphQuery.show((int) graphQuery.count(), false);
+	    graphQuery.show((int) graphQuery.count(), false);
+
 		
 	}	
 

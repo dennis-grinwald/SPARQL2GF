@@ -40,7 +40,7 @@ public class NTripleToCSV_Compiler {
 		}
 				
 		//write nodeList elements into vertex.csv file
-		FileWriter vertexWriter = new FileWriter("/home/dennis/git/SPARQL2GF/sparql2gf/data/testdata_RDF/vertexCSV.csv");
+		FileWriter vertexWriter = new FileWriter("/home/dennis/git/SPARQL2GF/sparql2gf/data/testdata_RDF/vertices.csv");
 			
 		for (String s : nodeList) {
 			vertexWriter.write(s);
@@ -49,7 +49,7 @@ public class NTripleToCSV_Compiler {
 		vertexWriter.close();
 		
 		//write tripleList elements into edge.csv file
-		FileWriter edgeWriter = new FileWriter("/home/dennis/git/SPARQL2GF/sparql2gf/data/testdata_RDF/edgeCSV.csv");
+		FileWriter edgeWriter = new FileWriter("/home/dennis/git/SPARQL2GF/sparql2gf/data/testdata_RDF/edges.csv");
 		
 		for (String s : tripleList) {
 			edgeWriter.write(s);
