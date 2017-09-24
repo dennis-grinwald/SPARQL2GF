@@ -68,7 +68,7 @@ public class TestClient_RDF_noPrefix {
 		//String queryString = "SELECT ?o3 WHERE { ?s ?p ?o . ?o ?p2 ?o2 . ?o2 ?p3 ?o3}";
 		String queryString = "SELECT *  WHERE { ?s ?p <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/RatingSite1> . }";
 		
-		//special case (object with extra symbols "-") -> change motiffilter class line: 
+		//special case (object with extra symbols "-") -> change motiffilter & motifpattern class
 		//String queryString = "SELECT * WHERE { ?s ?p '2008-06-17' }";
 		
 
