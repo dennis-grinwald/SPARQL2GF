@@ -103,16 +103,21 @@ public class MotifFilter {
 			filterList.add(predicateFilter);
 		} 
 		
-		if (v2!=null) {
-			String objectFilter = v2 + "." + "id" +"'"+ v2o+"'";
-			filterList.add(objectFilter);
-		}		
 		
 		
+		
+		
+		//loop for objects with special symbols(e.g. - , . ? etc.)
 		/*if (v2!=null) {
-			String objectFilter = v2 + "." + "name=" +"'"+ v2o+"'";
+			String objectFilter = "object" + "." + "id=" +"'"+ v2o+"'";
 			filterList.add(objectFilter);
-		} */
+		}*/		
+		
+		
+		if (v2!=null) {
+			String objectFilter = v2 + "." + "id=" +"'"+ v2o+"'";
+			filterList.add(objectFilter);
+		} 
 		return filterList;
 		
 	}

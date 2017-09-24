@@ -61,17 +61,26 @@ public class TestClient_RDF_noPrefix {
 		//graphFrame.edges().show((int) graphFrame.edges().count(), false);
 		//graphFrame.triplets().show((int) graphFrame.triplets().count(), false);
         
-		//create SPARQL query string
-		String queryString = "SELECT ?o WHERE { ?s <http://purl.org/dc/elements/1.1/date> ?o }";
+		//bsbm-tools dataset
 		
-		//Various testQueryStrings with URIs-no prefix bindings
-		//String queryString = "SELECT * WHERE { ?s ?p ?o}";
-        //String queryString = "SELECT * WHERE {  ?s ?p ?o }";
+		//String queryString = "SELECT ?o WHERE { ?s <http://purl.org/dc/elements/1.1/date> ?o }";
+		//String queryString = "SELECT ?o WHERE { ?s ?p ?o}";
+		//String queryString = "SELECT ?o3 WHERE { ?s ?p ?o . ?o ?p2 ?o2 . ?o2 ?p3 ?o3}";
+		String queryString = "SELECT *  WHERE { ?s ?p <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/RatingSite1> . }";
+		
+		//special case (object with extra symbols "-") -> change motiffilter class line: 
+		//String queryString = "SELECT * WHERE { ?s ?p '2008-06-17' }";
+		
+
+		//Tinkerpop "modern"- dataset --- /data/testdata_PG
+		
 		//String queryString = "SELECT ?petersCreations WHERE {  <https://www.abc.de/peter> <https://www.relation.de/created> ?petersCreations }";
 		//BUG String queryString = "SELECT * WHERE {  <https://abc.de/marko> ?p ?o }";
 		//String queryString = "SELECT ?personNode WHERE { ?personNode <https://www.relation.de/label> <https://www.abc.de/person> } ";
 		//String queryString = "SELECT ?s WHERE { ?s <https://www.relation.de/knows> <https://www.abc.de/josh> }";
-
+		
+	
+		
 		
 		//Translate SPARQL query into GraphFrames graph Query and apply on GraphFrame "graphFrame" 
 		//- returns DataFrame(table) that represents Query Evaluation
