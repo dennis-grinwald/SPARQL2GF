@@ -22,5 +22,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/dennis/Documents/BA/gfCluster/spark-jobserver-master/job-server-api/target/scala-2.11/job-server-api_2.11-0.8.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/dennis/Documents/BA/gfCluster/spark-jobserver-master/job-server/target/scala-2.11/job-server_2.11-0.8.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/dennis/Documents/BA/gfCluster/spark-jobserver-master/job-server-extras/target/scala-2.11/job-server-extras_2.11-0.8.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
