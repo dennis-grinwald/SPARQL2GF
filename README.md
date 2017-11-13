@@ -36,13 +36,11 @@ At this point the following Algebra epressions can be translated into a GraphFra
 **Projection**
 
 * Single variable projection - DONE
-* TBD: multi-variable projection
+* Multi-variable projection - DONE
 
 Testing:
 ---
-* 2.000.000+ triples have been queried in a single node setup 
-* Querying multiple triples in BGP
-* Quering multiple Projections in BGP
+* max dataset size has 1.000.000.000+ triples that have been queried in a single node setup 
 
 Quickstart
 ---
@@ -55,8 +53,7 @@ Please apply following steps to use the translator:
 
 **Next steps:**
 
-* Test application on HDFS cluster setup
-* Test application with larger datasets(goal = 10 Billion triples)
+* Implement HBase for OLTP jobs
 
 
 
